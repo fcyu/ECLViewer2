@@ -165,7 +165,7 @@ namespace ECLViewer
             dataGridView1.DataSource = new DataView(temp.CopyToDataTable());
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e) // TODO: check
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.CurrentCell.ColumnIndex == 0)
             {

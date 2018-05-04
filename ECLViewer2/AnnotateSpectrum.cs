@@ -141,7 +141,7 @@ namespace ECLViewer
             return clIonArray;
         }
 
-        public float calResidueMass(string seq) // TODO: check
+        public float calResidueMass(string seq)
         {
             float totalMass = 0;
             MatchCollection matchList = aaPattern.Matches(seq);
