@@ -106,6 +106,7 @@ namespace ECLViewer
                     if (!File.Exists(spectraFileName))
                     {
                         MessageBox.Show("The file " + spectraFileName + " is not exist.", "File not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Application.Exit();
                     }
                     else if (spectraFileName.EndsWith("mzXML"))
                     {
@@ -117,24 +118,29 @@ namespace ECLViewer
                     else
                     {
                         MessageBox.Show("The format of the file " + spectraFileName + " is not supported.", "Unsupported file format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Application.Exit();
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Open file error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
                 }
             }
             else if ((spectraFileName == null) && (resultFileName == null))
             {
                 MessageBox.Show("Please specify result and spectra files.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
             else if (spectraFileName == null)
             {
                 MessageBox.Show("Please specify spectra file.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
             else
             {
                 MessageBox.Show("Please specify result file.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
         }
 
@@ -169,7 +175,7 @@ namespace ECLViewer
                 if (!spectra.ContainsKey(currentScanNum))
                 {
                     MessageBox.Show("Cannot find the corresponding spectrum.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    Application.Exit();
                 }
                 currentPeakList = spectra[currentScanNum];
                 currentCharge = Convert.ToInt32(currentRow.Cells["charge"].Value);

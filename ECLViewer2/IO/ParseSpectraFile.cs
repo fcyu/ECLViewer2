@@ -40,7 +40,7 @@ namespace ECLViewer.IO
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ": " + currentScanNum, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Environment.Exit(1);
+                Application.Exit();
             }
         }
 
